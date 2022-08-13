@@ -1,2 +1,24 @@
-# HideTaskbar
-Hide/Show windows taskbar.
+﻿# HideTaskbar
+
+## 概要
+
+* Windowsのタスクバーの表示/非表示を切り替えるツール
+* タスクバーを非表示にする設定は存在するものの，この設定には以下の欠点が存在する
+	* よく見ると数ピクセル程度に潰されているだけで消えてはいない
+	* マウスカーソルを画面の下端にぶつけるとタスクバーがぬるっと復活する
+* コマンドプロンプトを全画面で使うときに不便なので，タスクバーを完全に消すツールを作成した
+* 以下2つのツールからなる
+	* `HideTaskbar`フォルダにはタスクバーを非表示にするツールが入っている
+	* `ShowTaskbar`フォルダには`HideTaskbar`によって消されたタスクバーを復活させるツールが入っている
+
+## 使い方
+
+* Visual Studioで`HideTaskbar\HideTaskbar.sln`を開き，ビルドすると`HideTaskbar.exe`が生成される
+* Visual Studioで`ShowTaskbar\ShowTaskbar.sln`を開き，ビルドすると`ShowTaskbar.exe`が生成される
+* 生成された`HideTaskbar.exe`を実行すると，タスクバーが消える
+* 生成された`ShowTaskbar.exe`を実行すると，タスクバーが現れる
+
+## 注意点
+
+* Windowsの設定でタスクバーを非表示にしていると，`HideTaskbar.exe`でタスクバーを消してもしばらく待ってからマウスカーソルを画面の下端にぶつけることでタスクバーが復活してしまうので，タスクバーを表示する設定にしたうえでこのツールを使用すること
+
