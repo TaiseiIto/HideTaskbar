@@ -13,6 +13,17 @@
 
 ## 使い方
 
+* [ここ](https://github.com/TaiseiIto/HideTaskbar/actions)から最新のワークフローを選択し，ArtifactsのProductsをダウンロードする
+* 警告によりダウンロードが一時停止された場合，警告を無視してダウンロードを再開する
+* ダウンロードしたzipファイルを展開する
+* 展開先にx86版とx64版があるので，環境にあった方を選択する
+* `HideTaskbar.exe`を実行すると，タスクバーが消える
+* `ShowTaskbar.exe`を実行すると，タスクバーが現れる
+* これらのexeファイルには電子証明書がないので初回実行時に警告が出るが気にしない
+
+## 自分でビルドする方法
+
+* このリポジトリをクローンする
 * Visual Studioで`HideTaskbar\HideTaskbar.sln`を開き，ビルドすると`HideTaskbar.exe`が生成される
 * Visual Studioで`ShowTaskbar\ShowTaskbar.sln`を開き，ビルドすると`ShowTaskbar.exe`が生成される
 * 生成された`HideTaskbar.exe`を実行すると，タスクバーが消える
