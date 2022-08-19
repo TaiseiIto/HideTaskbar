@@ -20,4 +20,11 @@ jobs:
         run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release
       - name: Check the result
         run: tree /f
+      - name: Upload the products
+        uses: actions/upload-artifact@main
+        with:
+          name: Products
+          path: |
+            HideTaskbar\x64\Release\HideTaskbar.exe
+            ShowTaskbar\x64\Release\ShowTaskbar.exe
 
