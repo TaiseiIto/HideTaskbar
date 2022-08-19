@@ -11,11 +11,13 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@main
       - name: Setup Visual Studio
-        - uses: microsoft/setup-msbuild@master
-        - uses: ilammy/msvc-dev-cmd@master
-      - name: Build
-        - run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release
-        - run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release
+        uses: microsoft/setup-msbuild@master
+      - name: Setup Visual Studio Environment Variables
+        uses: ilammy/msvc-dev-cmd@master
+      - name: Build HideTaskbar
+        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release
+      - name: Build ShowTaskbar
+        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release
       - name: Check the result
         run: tree /f
 
