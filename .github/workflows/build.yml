@@ -14,30 +14,22 @@ jobs:
         uses: microsoft/setup-msbuild@master
       - name: Setup Visual Studio Environment Variables
         uses: ilammy/msvc-dev-cmd@master
-      - name: Make x86 HideTaskbar directory
-        run: mkdir HideTaskbar\x86\Release
       - name: Build x86 HideTaskbar
-        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release /p:OutputPath=x86\Release /p:Platform=x86
-      - name: Make x86 ShowTaskbar directory
-        run: mkdir ShowTaskbar\x86\Release
+        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release /p:Platform=x86
       - name: Build x86 ShowTaskbar
-        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release /p:OutputPath=x86\Release /p:Platform=x86
-      - name: Make x64 HideTaskbar directory
-        run: mkdir HideTaskbar\x64\Release
+        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release /p:Platform=x86
       - name: Build x64 HideTaskbar
-        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release /p:OutputPath=x64\Release /p:Platform=x64
-      - name: Make x64 ShowTaskbar directory
-        run: mkdir ShowTaskbar\x64\Release
+        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release /p:Platform=x64
       - name: Build x64 ShowTaskbar
-        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release /p:OutputPath=x64\Release /p:Platform=x64
+        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release /p:Platform=x64
       - name: Check the result
         run: tree /f
       - name: Make x86 directory
         run: mkdir x86
       - name: Copy x86 HideTaskbar
-        run: copy HideTaskbar\x86\Release\HideTaskbar.exe x86\HideTaskbar.exe
+        run: copy HideTaskbar\Release\HideTaskbar.exe x86\HideTaskbar.exe
       - name: Copy x86 ShowTaskbar
-        run: copy ShowTaskbar\x86\Release\ShowTaskbar.exe x86\ShowTaskbar.exe
+        run: copy ShowTaskbar\Release\ShowTaskbar.exe x86\ShowTaskbar.exe
       - name: Make x64 directory
         run: mkdir x64
       - name: Copy x64 HideTaskbar
