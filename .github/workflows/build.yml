@@ -14,17 +14,35 @@ jobs:
         uses: microsoft/setup-msbuild@master
       - name: Setup Visual Studio Environment Variables
         uses: ilammy/msvc-dev-cmd@master
-      - name: Build HideTaskbar
-        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release
-      - name: Build ShowTaskbar
-        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release
+      - name: Build x86 HideTaskbar
+        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release;Platform=x86
+      - name: Build x86 ShowTaskbar
+        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release;Platform=x86
+      - name: Build x64 HideTaskbar
+        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release;Platform=x64
+      - name: Build x64 ShowTaskbar
+        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release;Platform=x64
       - name: Check the result
         run: tree /f
+      - name: Make x86 directory
+        run: mkdir x86
+      - name: Copy x86 HideTaskbar
+        run: copy HideTaskbar\x86\Release\HideTaskbar.exe x86\HideTaskbar.exe
+      - name: Copy x86 ShowTaskbar
+        run: copy ShowTaskbar\x86\Release\ShowTaskbar.exe x86\ShowTaskbar.exe
+      - name: Make x64 directory
+        run: mkdir x64
+      - name: Copy x64 HideTaskbar
+        run: copy HideTaskbar\x64\Release\HideTaskbar.exe x64\HideTaskbar.exe
+      - name: Copy x64 ShowTaskbar
+        run: copy ShowTaskbar\x64\Release\ShowTaskbar.exe x64\ShowTaskbar.exe
       - name: Upload the products
         uses: actions/upload-artifact@main
         with:
           name: Products
           path: |
-            HideTaskbar\x64\Release\HideTaskbar.exe
-            ShowTaskbar\x64\Release\ShowTaskbar.exe
+            x86\HideTaskbar.exe
+            x86\ShowTaskbar.exe
+            x64\HideTaskbar.exe
+            x64\ShowTaskbar.exe
 
