@@ -1,0 +1,21 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: build
+    runs-on: windows-2019
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@main
+      - name: Setup Visual Studio
+        - uses: microsoft/setup-msbuild@master
+        - uses: ilammy/msvc-dev-cmd@master
+      - name: Build
+        - run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release
+        - run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release
+      - name: Check the result
+        run: tree /f
+
