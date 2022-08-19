@@ -15,13 +15,13 @@ jobs:
       - name: Setup Visual Studio Environment Variables
         uses: ilammy/msvc-dev-cmd@master
       - name: Build x86 HideTaskbar
-        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release;Platform=x86
+        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release /p:Platform=x86
       - name: Build x86 ShowTaskbar
-        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release;Platform=x86
+        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release /p:Platform=x86
       - name: Build x64 HideTaskbar
-        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release;Platform=x64
+        run: msbuild HideTaskbar/HideTaskbar.sln /p:Configuration=Release /p:Platform=x64
       - name: Build x64 ShowTaskbar
-        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release;Platform=x64
+        run: msbuild ShowTaskbar/ShowTaskbar.sln /p:Configuration=Release /p:Platform=x64
       - name: Check the result
         run: tree /f
       - name: Make x86 directory
